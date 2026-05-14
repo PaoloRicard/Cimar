@@ -11,16 +11,14 @@
     /* ── RESET & TOKENS ───────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black:   #060d14;
-      --iron:    #0d1a26;
-      --steel:   #1a2e40;
-      --ash:     #5c7a90;
-      --silver:  #b8cdd8;
-      --white:   #f0f5f8;
-      --amber:   #00a8d8;
-      --amber2:  #1ac4f0;
-      --accent:  #7ed957;
-      --blue-dk: #0d3a5c;
+      --black:   #0a0a0b;
+      --iron:    #1a1c1f;
+      --steel:   #2e3138;
+      --ash:     #6b7280;
+      --silver:  #c9cdd4;
+      --white:   #f4f5f7;
+      --amber:   #f59e0b;
+      --amber2:  #fbbf24;
       --danger:  #ef4444;
       --font-h:  'Barlow Condensed', sans-serif;
       --font-b:  'Barlow', sans-serif;
@@ -40,7 +38,6 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; width: 100%; }
 
-
     /* ── UTILITIES ─────────────────────────────────────────── */
     .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
     .badge {
@@ -50,8 +47,8 @@
       font-weight: 700;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
+      color: var(--amber);
+      border: 1px solid var(--amber);
       border-radius: 2px;
       padding: 4px 12px;
       margin-bottom: 20px;
@@ -65,7 +62,6 @@
       letter-spacing: .01em;
     }
     .amber { color: var(--amber); }
-    .accent { color: var(--accent); }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -82,10 +78,10 @@
       transition: var(--transition);
     }
     .btn-amber {
-      background: linear-gradient(135deg, #0d3a5c 0%, #00a8d8 100%);
-      color: var(--white);
+      background: var(--amber);
+      color: var(--black);
     }
-    .btn-amber:hover { background: linear-gradient(135deg, #00a8d8 0%, #1ac4f0 100%); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,168,216,.4); }
+    .btn-amber:hover { background: var(--amber2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,158,11,.35); }
     .btn-outline {
       background: transparent;
       color: var(--white);
@@ -106,16 +102,6 @@
     .delay-4 { transition-delay: .48s; }
 
     /* ── NAVBAR ────────────────────────────────────────────── */
-
-
-    .logosite{
-  height: 75px; /* Define uma altura fixa para não quebrar a barra */
-  width: auto;   /* Mantém a proporção para não achatar */
-  display: block;
-  object-fit: contain;
-}
-
-
     #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -141,8 +127,6 @@
       letter-spacing: .04em;
       text-transform: uppercase;
     }
-
-
     .logo span { color: var(--amber); }
     .nav-links {
       display: flex;
@@ -176,7 +160,7 @@
     .hero-placeholder {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #0d1a26 0%, #060d14 60%, #061520 100%);
+      background: linear-gradient(135deg, #1a1c1f 0%, #0d0f12 60%, #1a1008 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -187,8 +171,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(0,168,216,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,168,216,.04) 1px, transparent 1px);
+        linear-gradient(rgba(245,158,11,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,158,11,.04) 1px, transparent 1px);
       background-size: 60px 60px;
     }
     .img-label {
@@ -202,17 +186,13 @@
       border: 1px dashed var(--steel);
       padding: 12px 24px;
       border-radius: var(--radius);
-      opacity: 0.1;
-      width: 100%;
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: 
-        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(0,168,216,.12) 0%, transparent 60%),
-        linear-gradient(to top, rgba(6,13,20,1) 0%, rgba(6,13,20,.65) 40%, rgba(6,13,20,.2) 100%);
+      background: linear-gradient(to top, rgba(10,10,11,1) 0%, rgba(10,10,11,.65) 40%, rgba(10,10,11,.2) 100%);
     }
-    /* Blue accent bar */
+    /* Amber accent bar */
     .hero-accent {
       position: absolute;
       left: 0; bottom: 0;
@@ -227,7 +207,7 @@
     }
     .hero-content h1 {
       font-family: var(--font-h);
-      font-size: clamp(35px, 7vw, 60px);
+      font-size: clamp(44px, 7vw, 90px);
       font-weight: 900;
       line-height: .98;
       text-transform: uppercase;
@@ -293,15 +273,6 @@
       border-top: 1px solid var(--steel);
       border-bottom: 1px solid var(--steel);
       padding: 0;
-      position: relative;
-    }
-    #stats::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--amber), var(--accent), var(--amber), transparent);
-      opacity: .6;
     }
     #stats .stats-inner {
       grid-template-columns: repeat(4,1fr);
@@ -364,9 +335,6 @@
       background: var(--iron);
       border: 1px dashed var(--steel);
       transition: transform .6s ease;
-
-      object-fit: cover;
-      object-position: center;
     }
     .solution-card:hover .sol-ph { transform: scale(1.04); }
 
@@ -429,7 +397,7 @@
       position: absolute;
       top: -120px; right: -120px;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(0,168,216,.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(245,158,11,.07) 0%, transparent 70%);
       pointer-events: none;
     }
     .dif-grid {
@@ -445,18 +413,18 @@
       font-size: 72px;
       font-weight: 900;
       line-height: .85;
-      color: rgba(0,168,216,.12);
+      color: rgba(245,158,11,.12);
       flex-shrink: 0;
       width: 64px;
       text-align: right;
       transition: color var(--transition);
     }
-    .dif-item:hover .dif-num { color: rgba(0,168,216,.30); }
+    .dif-item:hover .dif-num { color: rgba(245,158,11,.30); }
     .dif-body { flex: 1; }
     .dif-icon {
       width: 44px; height: 44px;
-      background: rgba(0,168,216,.1);
-      border: 1px solid rgba(0,168,216,.25);
+      background: rgba(245,158,11,.1);
+      border: 1px solid rgba(245,158,11,.25);
       border-radius: var(--radius);
       display: flex; align-items: center; justify-content: center;
       font-size: 20px;
@@ -495,13 +463,13 @@
     .logos-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 2px;
       margin-bottom: 80px;
     }
     .logo-box {
       flex: 1 1 160px;
       height: 80px;
-      
+      background: var(--iron);
       border: 1px solid var(--steel);
       display: flex;
       align-items: center;
@@ -512,10 +480,6 @@
       text-transform: uppercase;
       color: var(--ash);
       transition: background var(--transition), border-color var(--transition);
-
-          background: #1a2e40;
-    object-fit: contain;
-    padding: 2px;
     }
     .logo-box:hover { background: var(--steel); border-color: var(--ash); }
 
@@ -558,7 +522,64 @@
       .g2,.g3,.g4,.g5,.g6 { grid-column: 1/-1; min-height: 200px; }
     }
 
-
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+    @media (max-width: 860px) { .testimonials { grid-template-columns: 1fr; } }
+    .testi-card {
+      background: var(--iron);
+      border: 1px solid var(--steel);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .testi-card:hover { border-color: var(--ash); transform: translateY(-4px); }
+    .testi-quote {
+      font-family: var(--font-h);
+      font-size: 72px;
+      font-weight: 900;
+      line-height: .6;
+      color: var(--amber);
+      margin-bottom: 16px;
+      opacity: .35;
+    }
+    .testi-text {
+      font-size: 14px;
+      color: var(--silver);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--steel);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-family: var(--font-h);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .testi-role {
+      font-size: 12px;
+      color: var(--ash);
+    }
 
     /* ── COBERTURA REGIONAL ───────────────────────────────── */
     #regional {
@@ -620,8 +641,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(0,168,216,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,168,216,.03) 1px, transparent 1px);
+        linear-gradient(rgba(245,158,11,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,158,11,.03) 1px, transparent 1px);
       background-size: 48px 48px;
     }
     .cta-inner {
@@ -686,7 +707,7 @@
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--amber);
       margin-bottom: 20px;
     }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -742,202 +763,6 @@
       0%,100% { box-shadow: 0 6px 28px rgba(37,211,102,.45); }
       50% { box-shadow: 0 6px 28px rgba(37,211,102,.8), 0 0 0 12px rgba(37,211,102,.08); }
     }
-
-    /* ══════════════════════════════════════════════════════════
-       RESPONSIVIDADE MOBILE — ajustes completos
-    ══════════════════════════════════════════════════════════ */
-
-    /* Tablet grande (≤1024px) */
-    @media (max-width: 1024px) {
-      .container { padding: 0 24px; }
-      #solutions { padding: 80px 0; }
-      #portfolio { padding: 80px 0; }
-      #cta-banner { padding: 80px 0; }
-    }
-
-    /* Tablet (≤900px) */
-    @media (max-width: 900px) {
-      /* Navbar: esconde links, mostra só logo + botão WA */
-      .nav-links { display: none; }
-      .nav-cta .btn-outline { display: none; } /* esconde o botão de telefone */
-      .nav-cta .btn-amber { padding: 10px 18px; font-size: 12px; }
-
-      /* Hero: menos padding inferior pra não cortar */
-      #hero { padding-bottom: 60px; padding-top: 80px; align-items: flex-end; }
-
-      /* Hero subtitle menor */
-      .hero-sub { font-size: 16px; max-width: 100%; }
-
-      /* Botões do hero empilham mais confortavelmente */
-      .hero-btns { gap: 10px; }
-      .hero-btns .btn { font-size: 13px; padding: 14px 22px; }
-
-      /* Stats: 2x2 em tablet */
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      #stats .stats-inner { grid-template-columns: repeat(2, 1fr); }
-
-      /* Diferenciais: coluna única */
-      .dif-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 48px; }
-
-      /* Footer: 2 colunas */
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-    }
-
-    /* Mobile grande (≤640px) */
-    @media (max-width: 640px) {
-      .container { padding: 0 16px; }
-
-      /* Seções com menos padding vertical */
-      #solutions { padding: 60px 0; }
-      #portfolio { padding: 60px 0; }
-      #cta-banner { padding: 60px 0; }
-      #regional { padding: 60px 0; }
-
-      /* Hero */
-      #hero { padding-bottom: 48px; min-height: 100svh; }
-      .hero-content { max-width: 100%; }
-      .hero-sub { font-size: 15px; margin-bottom: 28px; }
-      .hero-btns { flex-direction: column; gap: 10px; }
-      .hero-btns .btn { width: 100%; justify-content: center; font-size: 14px; padding: 16px 20px; }
-
-      /* Stats em grid 2x2 */
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .stat-item { padding: 16px; }
-      .stat-num { font-size: 28px; }
-
-      /* Solutions: 1 coluna, aspect-ratio menor */
-      .solutions-grid { grid-template-columns: 1fr; }
-      .solution-card { aspect-ratio: 16/9; }
-      /* No mobile, mostra o conteúdo sempre (sem depender de hover) */
-      .sol-content { transform: translateY(0); }
-      .sol-desc { opacity: 1; max-height: none; }
-
-      /* Diferenciais */
-      .dif-num { font-size: 52px; width: 48px; }
-      .dif-grid { gap: 32px; }
-
-      /* Gallery: tudo em 1 coluna */
-      .g1, .g2, .g3, .g4, .g5, .g6 { grid-column: 1 / -1; min-height: 200px; }
-
-
-      /* Regional */
-      .regional-inner { grid-template-columns: 1fr; gap: 32px; }
-
-      /* CTA buttons empilham */
-      .cta-btns { flex-direction: column; align-items: stretch; gap: 12px; }
-      .cta-btns .btn { width: 100%; justify-content: center; font-size: 14px; padding: 18px 24px; }
-
-      /* Footer: 1 coluna */
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-tagline { max-width: 100%; }
-
-      /* WhatsApp float menor no mobile */
-      .wha-float { width: 50px; height: 50px; bottom: 20px; right: 16px; }
-      .wha-float svg { width: 22px; height: 22px; }
-
-      /* Navbar scrolled bg mais opaco pra legibilidade */
-      #navbar.scrolled { background: rgba(6,13,20,.97); }
-    }
-
-    /* Mobile pequeno (≤400px) */
-    @media (max-width: 400px) {
-      .container { padding: 0 12px; }
-      .hero-content h1 { font-size: clamp(36px, 10vw, 52px); }
-      .section-title { font-size: clamp(32px, 9vw, 48px); }
-      .cta-title { font-size: clamp(34px, 10vw, 52px); }
-      .stat-item { padding: 14px 8px; }
-      .stat-num { font-size: 24px; }
-      .stat-label { font-size: 10px; }
-      .dif-num { display: none; }
-      .dif-item { gap: 0; }
-    }
-
-    /* ── HAMBURGUER / MENU MOBILE ─────────────────────────── */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 40px; height: 40px;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      padding: 4px;
-      z-index: 201;
-    }
-    .hamburger span {
-      display: block;
-      height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: all .3s ease;
-      transform-origin: center;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Drawer mobile */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 150;
-      background: rgba(6,13,20,.98);
-      backdrop-filter: blur(20px);
-      padding: 80px 24px 40px;
-      flex-direction: column;
-      gap: 8px;
-      transform: translateY(-100%);
-      transition: transform .35s cubic-bezier(.4,0,.2,1);
-      border-bottom: 1px solid var(--steel);
-    }
-    .mobile-menu.open { transform: translateY(0); }
-    .mobile-menu a {
-      font-family: var(--font-h);
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--silver);
-      padding: 12px 0;
-      border-bottom: 1px solid var(--steel);
-      transition: color var(--transition);
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover, .mobile-menu a:active { color: var(--amber); }
-    .mobile-menu-cta {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .mobile-menu-cta .btn { width: 100%; justify-content: center; font-size: 15px; }
-
-    @media (max-width: 900px) {
-      .hamburger { display: flex; }
-      .mobile-menu { display: flex; }
-      /* esconde o nav-cta completo no mobile — fica no drawer */
-      .nav-cta { display: none; }
-
-
-
-      /* ////////////////////////////////////////////////////////////////////////////////////////// */
-
-                                               /* MINHAS ALTERAÇÕES */
-
-      /* ////////////////////////////////////////////////////////////////////////////////////////// */
-
-
-
-
-
-      /* PRA DEIXAR A PRIMEIRA IMAGEM COM AS BORDA NO FADE*/
-
-
-
-
-    }
   </style>
 </head>
 <body>
@@ -946,44 +771,26 @@
   <nav id="navbar">
     <div class="container">
       <div class="nav-inner">
-         <img class="logosite" src="ogatomemurdeu.png" alt="FALTA O SEOOO">
+        <div class="logo">Estrutura<span>Pro</span></div>
         <ul class="nav-links">
           <li><a href="#solutions">Soluções</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#regional">Cobertura</a></li>
           <li><a href="#cta-banner">Contato</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="tel:+558581488448" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">📞 (85) 8148-8448</a>
-          <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber" style="padding:10px 20px;font-size:13px;">WhatsApp</a>
+          <a href="tel:+55000000000" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">📞 (00) 00000-0000</a>
+          <a href="https://wa.me/5500000000000" class="btn btn-amber" style="padding:10px 20px;font-size:13px;">WhatsApp</a>
         </div>
-        <!-- Hamburguer mobile -->
-        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </div>
   </nav>
 
-  <!-- ══ MENU MOBILE DRAWER ════════════════════════════════ -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#solutions" class="mobile-link">Soluções</a>
-    <a href="#portfolio" class="mobile-link">Portfólio</a>
-    <a href="#regional" class="mobile-link">Cobertura</a>
-    <a href="#cta-banner" class="mobile-link">Contato</a>
-    <div class="mobile-menu-cta">
-      <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Falar no WhatsApp
-      </a>
-      <a href="tel:+558581488448" class="btn btn-outline">📞 (85) 8148-8448</a>
-    </div>
-  </div>
-
   <!-- ══ HERO ════════════════════════════════════════════════ -->
   <section id="hero">
     <div class="hero-placeholder">
-      <img id="img111" class="img-label" src="arquibancadas.jpeg" alt="Descrição da arquibancada">
+      <div class="img-label">📸 Foto do evento — substituir pela imagem real</div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-accent"></div>
@@ -994,7 +801,7 @@
         <h1>Estruturas Completas:<br/><em>Segurança e Agilidade</em><br/>da Montagem ao Desmonte.</h1>
         <p class="hero-sub">Toldos, palcos, arquibancadas e grades de contenção para eventos de pequeno, médio e grande porte.</p>
         <div class="hero-btns">
-          <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber">
+          <a href="https://wa.me/5500000000000" class="btn btn-amber">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar com Consultor no WhatsApp
           </a>
@@ -1039,7 +846,7 @@
       <div class="solutions-grid">
 
         <div class="solution-card fade-up">
-          <img class="sol-ph" src="PalcoHoriFolia.jpeg" alt="VOLTA PRA FAZER O SEO">
+          <div class="sol-ph">📸 Foto do palco aqui</div>
           <div class="sol-content">
             <span class="sol-icon">🎪</span>
             <div class="sol-title">Palcos e<br/>Praticáveis</div>
@@ -1049,7 +856,7 @@
         </div>
 
         <div class="solution-card fade-up delay-1">
-          <img class="sol-ph" src="Coberturas.png" alt="VOLTA PRA FAZER O SEO">
+          <div class="sol-ph">📸 Foto do toldo aqui</div>
           <div class="sol-content">
             <span class="sol-icon">⛺</span>
             <div class="sol-title">Toldos e<br/>Coberturas</div>
@@ -1059,7 +866,7 @@
         </div>
 
         <div class="solution-card fade-up delay-2">
-          <img class="sol-ph" src="arquibancadas.jpeg" alt="VOLTA PRA FAZER O SEO">
+          <div class="sol-ph">📸 Foto da arquibancada aqui</div>
           <div class="sol-content">
             <span class="sol-icon">🏟️</span>
             <div class="sol-title">Arquiban&shy;cadas</div>
@@ -1069,7 +876,7 @@
         </div>
 
         <div class="solution-card fade-up delay-3">
-          <img class="sol-ph" src="fechamento.jpeg" alt="VOLTA PRA FAZER O SEO">
+          <div class="sol-ph">📸 Foto das grades aqui</div>
           <div class="sol-content">
             <span class="sol-icon">🔒</span>
             <div class="sol-title">Grades e<br/>Fechamentos</div>
@@ -1082,41 +889,123 @@
     </div>
   </section>
 
+  <!-- ══ DIFERENCIAIS ══════════════════════════════════════════ -->
+  <section id="diferenciais">
+    <div class="container">
+      <div class="badge">Por que nos contratar?</div>
+      <h2 class="section-title">Nossos <span class="amber">Diferenciais</span><br/>Técnicos</h2>
 
+      <div class="dif-grid">
+
+        <div class="dif-item fade-up">
+          <div class="dif-num">01</div>
+          <div class="dif-body">
+            <div class="dif-icon">🛡️</div>
+            <div class="dif-title">Segurança em Primeiro Lugar</div>
+            <p class="dif-text">Todas as nossas estruturas seguem as normas técnicas da ABNT e são acompanhadas por engenheiro responsável com emissão de ART (Anotação de Responsabilidade Técnica). Seu evento em conformidade com a lei.</p>
+          </div>
+        </div>
+
+        <div class="dif-item fade-up delay-1">
+          <div class="dif-num">02</div>
+          <div class="dif-body">
+            <div class="dif-icon">⏱️</div>
+            <div class="dif-title">Pontualidade Britânica</div>
+            <p class="dif-text">O evento não espera. Nossa equipe é treinada para cumprir rigorosamente o cronograma de montagem e desmontagem, sem atrasos que comprometam a sua produção ou o seu público.</p>
+          </div>
+        </div>
+
+        <div class="dif-item fade-up delay-2">
+          <div class="dif-num">03</div>
+          <div class="dif-body">
+            <div class="dif-icon">✨</div>
+            <div class="dif-title">Estruturas Modernas e Conservadas</div>
+            <p class="dif-text">Todo o nosso acervo passa por inspeção, manutenção e limpeza após cada uso. Você recebe materiais revisados, sem ferrugem, amassados ou improvisos que envergonhem na hora do evento.</p>
+          </div>
+        </div>
+
+        <div class="dif-item fade-up delay-3">
+          <div class="dif-num">04</div>
+          <div class="dif-body">
+            <div class="dif-icon">🤝</div>
+            <div class="dif-title">Atendimento Personalizado</div>
+            <p class="dif-text">Desde a visita técnica até o último pino desmontado, você tem um consultor dedicado ao seu projeto. Sem call center, sem burocracia — comunicação direta e soluções rápidas para imprevistos.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ══ PORTFOLIO / PROVA SOCIAL ═══════════════════════════════ -->
   <section id="portfolio">
     <div class="container">
       <div class="port-header">
         <div class="badge">Autoridade e Resultados</div>
-        <h2 class="section-title">Portfólio de <span class="amber">Eventos</span></h2>
+        <h2 class="section-title">Portfólio e <span class="amber">Depoimentos</span></h2>
         <p>Veja quem já confiou na nossa estrutura para realizar eventos memoráveis.</p>
       </div>
 
       <!-- LOGOS -->
       <div class="logos-strip fade-up">
-        <img class="logo-box" src="logosclientes/PrefeituraDeHorizonteLogo.png" alt="VOLTA PRA FAZER SEOOO">
-        <img class="logo-box" src="logosclientes/PrefeituraDeBeberibeLogo.png" alt="VOLTA PRA FAZER SEOOO">
-        <img class="logo-box" src="logosclientes/BloquinhoGoxtosoLogo.png" alt="VOLTA PRA FAZER SEOOO">
-        <img class="logo-box" src="logosclientes/SescLogo.png" alt="VOLTA PRA FAZER SEOOO">
-        <img class="logo-box" src="logosclientes/RivieraBeachCLubLogo.png" alt="VOLTA PRA FAZER SEOOO">
-        
+        <div class="logo-box">Logo Cliente 01</div>
+        <div class="logo-box">Prefeitura XYZ</div>
+        <div class="logo-box">Logo Cliente 03</div>
+        <div class="logo-box">Produtora ABC</div>
+        <div class="logo-box">Logo Cliente 05</div>
+        <div class="logo-box">Logo Cliente 06</div>
       </div>
 
       <!-- GALLERY -->
       <div class="gallery-grid fade-up">
-
-        <img class="g-item g1" src="img/BloquinhoGoxtoso.jpg" alt="VOLTA PRA FAZER SEOOO">
-        <img class="g-item g2" src="img/RivieraBeachClub.jpeg" alt="VOLTA PRA FAZER SEOOO">
-        <img class="g-item g3" src="img/arquibancada2.jpg" alt="VOLTA PRA FAZER SEOOO">
-        <img class="g-item g4" src="img/CorridaMariaMatosHorizonte.jpg" alt="VOLTA PRA FAZER SEOOO">
-        <img class="g-item g5" src="img/Painel.png" alt="VOLTA PRA FAZER SEOOO">
-        <img class="g-item g6" src="img/arquibancadas.jpeg" alt="VOLTA PRA FAZER SEOOO">
-        
-
+        <div class="g-item g1">📸 Foto destaque — evento grande porte</div>
+        <div class="g-item g2">📸 Foto palco</div>
+        <div class="g-item g3">📸 Foto arquibancada</div>
+        <div class="g-item g4">📸 Foto toldo</div>
+        <div class="g-item g5">📸 Foto grades</div>
+        <div class="g-item g6">📸 Foto equipe</div>
       </div>
 
+      <!-- TESTIMONIALS -->
+      <div class="testimonials">
 
+        <div class="testi-card fade-up">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">A montagem foi impecável e a estrutura das grades salvou a organização do nosso festival. Nunca tivemos nenhum incidente de segurança em todos os anos de parceria.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">CR</div>
+            <div>
+              <div class="testi-name">Carlos R.</div>
+              <div class="testi-role">Diretor de Produção — Festival Regional</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up delay-1">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Contratamos para um evento municipal com mais de 8 mil pessoas. A equipe chegou no horário, montou tudo com perfeição e a prefeitura ficou muito satisfeita com o resultado.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AM</div>
+            <div>
+              <div class="testi-name">Ana M.</div>
+              <div class="testi-role">Secretaria de Cultura — Prefeitura Municipal</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up delay-2">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Profissionalismo do início ao fim. O toldo cristal que instalaram no nosso evento corporativo deixou o ambiente elegante e nossos clientes ficaram impressionados.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">FS</div>
+            <div>
+              <div class="testi-name">Felipe S.</div>
+              <div class="testi-role">Gestor de Eventos — Empresa Corporativa</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -1126,9 +1015,9 @@
       <div class="regional-inner">
         <div>
           <div class="badge">Onde atuamos</div>
-          <h2 class="section-title">Cobertura em Toda <span class="amber">Região Metropolitana</span></h2>
+          <h2 class="section-title">Cobertura em Toda <span class="amber">a Região</span></h2>
           <p style="color:var(--ash);margin-top:20px;font-size:15px;line-height:1.7;max-width:460px;">
-            Atendemos eventos em <strong style="color:var(--white)">Fortaleza</strong> e toda a região, levando infraestrutura de ponta para shows, feiras agropecuárias, eventos corporativos, festas particulares e festivais de todos os portes.
+            Atendemos eventos em <strong style="color:var(--white)">[Nome da Cidade/Região]</strong> e toda a região, levando infraestrutura de ponta para shows, feiras agropecuárias, eventos corporativos, festas particulares e festivais de todos os portes.
           </p>
           <div class="regional-tags">
             <span class="r-tag">Shows e Festivais</span>
@@ -1142,7 +1031,7 @@
           </div>
         </div>
         <div>
-          <iframe class="regional-map-ph" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1019103.9114002655!2d-39.49595435976986!3d-3.83707269528507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c74f1ae802e0ab%3A0x60f5c76f4e0806d5!2sRegi%C3%A3o%20Metropolitana%20de%20Fortaleza%2C%20CE!5e0!3m2!1spt-BR!2sbr!4v1778748192176!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="regional-map-ph">🗺️ Mapa ou foto da região de atuação</div>
         </div>
       </div>
     </div>
@@ -1156,7 +1045,7 @@
         <h2 class="cta-title">Vamos Montar o<br/>Seu Próximo <span class="amber">Evento?</span></h2>
         <p class="cta-sub">Entre em contato agora e receba um orçamento personalizado em minutos.</p>
         <div class="cta-btns">
-          <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber" style="font-size:16px;padding:20px 40px;">
+          <a href="https://wa.me/5500000000000" class="btn btn-amber" style="font-size:16px;padding:20px 40px;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar no WhatsApp Agora
           </a>
@@ -1180,7 +1069,7 @@
             <a href="#" class="social-btn" title="Instagram">📸</a>
             <a href="#" class="social-btn" title="Facebook">👤</a>
             <a href="#" class="social-btn" title="YouTube">▶️</a>
-            <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="social-btn" title="WhatsApp">💬</a>
+            <a href="https://wa.me/5500000000000" class="social-btn" title="WhatsApp">💬</a>
           </div>
         </div>
 
@@ -1188,6 +1077,7 @@
           <h4>Navegação</h4>
           <ul>
             <li><a href="#solutions">Soluções</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
             <li><a href="#portfolio">Portfólio</a></li>
             <li><a href="#regional">Cobertura</a></li>
             <li><a href="#cta-banner">Orçamento</a></li>
@@ -1210,8 +1100,8 @@
           <div class="contact-item">
             <span class="contact-icon">📞</span>
             <div>
-              <a href="tel:+558581488448">(85) 8148-8448</a><br/>
-              <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!">(85) 9135-0092 (WhatsApp)</a>
+              <a href="tel:+55000000000">(00) 00000-0000</a><br/>
+              <a href="https://wa.me/5500000000000">(00) 90000-0000 (WhatsApp)</a>
             </div>
           </div>
           <div class="contact-item">
@@ -1238,7 +1128,7 @@
   </footer>
 
   <!-- ══ WHATSAPP FLOAT ══════════════════════════════════════════ -->
-  <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="wha-float" title="Falar no WhatsApp">
+  <a href="https://wa.me/5500000000000" class="wha-float" title="Falar no WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -1248,23 +1138,6 @@
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // Hamburguer / menu mobile
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    // Fecha ao clicar em um link do menu
-    document.querySelectorAll('.mobile-link, .mobile-menu-cta .btn').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        document.body.style.overflow = '';
-      });
     });
 
     // Fade-up intersection observer

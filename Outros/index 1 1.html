@@ -40,7 +40,6 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; width: 100%; }
 
-
     /* ── UTILITIES ─────────────────────────────────────────── */
     .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
     .badge {
@@ -106,16 +105,6 @@
     .delay-4 { transition-delay: .48s; }
 
     /* ── NAVBAR ────────────────────────────────────────────── */
-
-
-    .logosite{
-  height: 75px; /* Define uma altura fixa para não quebrar a barra */
-  width: auto;   /* Mantém a proporção para não achatar */
-  display: block;
-  object-fit: contain;
-}
-
-
     #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -141,8 +130,6 @@
       letter-spacing: .04em;
       text-transform: uppercase;
     }
-
-
     .logo span { color: var(--amber); }
     .nav-links {
       display: flex;
@@ -558,7 +545,64 @@
       .g2,.g3,.g4,.g5,.g6 { grid-column: 1/-1; min-height: 200px; }
     }
 
-
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+    @media (max-width: 860px) { .testimonials { grid-template-columns: 1fr; } }
+    .testi-card {
+      background: var(--iron);
+      border: 1px solid var(--steel);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .testi-card:hover { border-color: var(--ash); transform: translateY(-4px); }
+    .testi-quote {
+      font-family: var(--font-h);
+      font-size: 72px;
+      font-weight: 900;
+      line-height: .6;
+      color: var(--amber);
+      margin-bottom: 16px;
+      opacity: .35;
+    }
+    .testi-text {
+      font-size: 14px;
+      color: var(--silver);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--steel);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-family: var(--font-h);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .testi-role {
+      font-size: 12px;
+      color: var(--ash);
+    }
 
     /* ── COBERTURA REGIONAL ───────────────────────────────── */
     #regional {
@@ -751,6 +795,7 @@
     @media (max-width: 1024px) {
       .container { padding: 0 24px; }
       #solutions { padding: 80px 0; }
+      #diferenciais { padding: 80px 0; }
       #portfolio { padding: 80px 0; }
       #cta-banner { padding: 80px 0; }
     }
@@ -789,6 +834,7 @@
 
       /* Seções com menos padding vertical */
       #solutions { padding: 60px 0; }
+      #diferenciais { padding: 60px 0; }
       #portfolio { padding: 60px 0; }
       #cta-banner { padding: 60px 0; }
       #regional { padding: 60px 0; }
@@ -819,6 +865,9 @@
       /* Gallery: tudo em 1 coluna */
       .g1, .g2, .g3, .g4, .g5, .g6 { grid-column: 1 / -1; min-height: 200px; }
 
+      /* Testimonials: 1 coluna */
+      .testimonials { grid-template-columns: 1fr; }
+      .testi-card { padding: 24px; }
 
       /* Regional */
       .regional-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -946,16 +995,17 @@
   <nav id="navbar">
     <div class="container">
       <div class="nav-inner">
-         <img class="logosite" src="ogatomemurdeu.png" alt="FALTA O SEOOO">
+        <div class="logo">Estrutura<span>Pro</span></div>
         <ul class="nav-links">
           <li><a href="#solutions">Soluções</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#regional">Cobertura</a></li>
           <li><a href="#cta-banner">Contato</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="tel:+558581488448" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">📞 (85) 8148-8448</a>
-          <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber" style="padding:10px 20px;font-size:13px;">WhatsApp</a>
+          <a href="tel:+55000000000" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">📞 (00) 00000-0000</a>
+          <a href="https://wa.me/5500000000000" class="btn btn-amber" style="padding:10px 20px;font-size:13px;">WhatsApp</a>
         </div>
         <!-- Hamburguer mobile -->
         <button class="hamburger" id="hamburger" aria-label="Abrir menu">
@@ -968,15 +1018,16 @@
   <!-- ══ MENU MOBILE DRAWER ════════════════════════════════ -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#solutions" class="mobile-link">Soluções</a>
+    <a href="#diferenciais" class="mobile-link">Diferenciais</a>
     <a href="#portfolio" class="mobile-link">Portfólio</a>
     <a href="#regional" class="mobile-link">Cobertura</a>
     <a href="#cta-banner" class="mobile-link">Contato</a>
     <div class="mobile-menu-cta">
-      <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber">
+      <a href="https://wa.me/5500000000000" class="btn btn-amber">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar no WhatsApp
       </a>
-      <a href="tel:+558581488448" class="btn btn-outline">📞 (85) 8148-8448</a>
+      <a href="tel:+55000000000" class="btn btn-outline">📞 (00) 00000-0000</a>
     </div>
   </div>
 
@@ -994,7 +1045,7 @@
         <h1>Estruturas Completas:<br/><em>Segurança e Agilidade</em><br/>da Montagem ao Desmonte.</h1>
         <p class="hero-sub">Toldos, palcos, arquibancadas e grades de contenção para eventos de pequeno, médio e grande porte.</p>
         <div class="hero-btns">
-          <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber">
+          <a href="https://wa.me/5500000000000" class="btn btn-amber">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar com Consultor no WhatsApp
           </a>
@@ -1082,14 +1133,60 @@
     </div>
   </section>
 
+  <!-- ══ DIFERENCIAIS ══════════════════════════════════════════ -->
+  <section id="diferenciais">
+    <div class="container">
+      <div class="badge">Por que nos contratar?</div>
+      <h2 class="section-title">Nossos <span class="amber">Diferenciais</span><br/>Técnicos</h2>
 
+      <div class="dif-grid">
+
+        <div class="dif-item fade-up">
+          <div class="dif-num">01</div>
+          <div class="dif-body">
+            <div class="dif-icon">🛡️</div>
+            <div class="dif-title">Segurança em Primeiro Lugar</div>
+            <p class="dif-text">Todas as nossas estruturas seguem as normas técnicas da ABNT e são acompanhadas por engenheiro responsável com emissão de ART (Anotação de Responsabilidade Técnica). Seu evento em conformidade com a lei.</p>
+          </div>
+        </div>
+
+        <div class="dif-item fade-up delay-1">
+          <div class="dif-num">02</div>
+          <div class="dif-body">
+            <div class="dif-icon">⏱️</div>
+            <div class="dif-title">Pontualidade Britânica</div>
+            <p class="dif-text">O evento não espera. Nossa equipe é treinada para cumprir rigorosamente o cronograma de montagem e desmontagem, sem atrasos que comprometam a sua produção ou o seu público.</p>
+          </div>
+        </div>
+
+        <div class="dif-item fade-up delay-2">
+          <div class="dif-num">03</div>
+          <div class="dif-body">
+            <div class="dif-icon">✨</div>
+            <div class="dif-title">Estruturas Modernas e Conservadas</div>
+            <p class="dif-text">Todo o nosso acervo passa por inspeção, manutenção e limpeza após cada uso. Você recebe materiais revisados, sem ferrugem, amassados ou improvisos que envergonhem na hora do evento.</p>
+          </div>
+        </div>
+
+        <div class="dif-item fade-up delay-3">
+          <div class="dif-num">04</div>
+          <div class="dif-body">
+            <div class="dif-icon">🤝</div>
+            <div class="dif-title">Atendimento Personalizado</div>
+            <p class="dif-text">Desde a visita técnica até o último pino desmontado, você tem um consultor dedicado ao seu projeto. Sem call center, sem burocracia — comunicação direta e soluções rápidas para imprevistos.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ══ PORTFOLIO / PROVA SOCIAL ═══════════════════════════════ -->
   <section id="portfolio">
     <div class="container">
       <div class="port-header">
         <div class="badge">Autoridade e Resultados</div>
-        <h2 class="section-title">Portfólio de <span class="amber">Eventos</span></h2>
+        <h2 class="section-title">Portfólio e <span class="amber">Depoimentos</span></h2>
         <p>Veja quem já confiou na nossa estrutura para realizar eventos memoráveis.</p>
       </div>
 
@@ -1100,7 +1197,6 @@
         <img class="logo-box" src="logosclientes/BloquinhoGoxtosoLogo.png" alt="VOLTA PRA FAZER SEOOO">
         <img class="logo-box" src="logosclientes/SescLogo.png" alt="VOLTA PRA FAZER SEOOO">
         <img class="logo-box" src="logosclientes/RivieraBeachCLubLogo.png" alt="VOLTA PRA FAZER SEOOO">
-        
       </div>
 
       <!-- GALLERY -->
@@ -1116,7 +1212,46 @@
 
       </div>
 
+      <!-- TESTIMONIALS -->
+      <div class="testimonials">
 
+        <div class="testi-card fade-up">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">A montagem foi impecável e a estrutura das grades salvou a organização do nosso festival. Nunca tivemos nenhum incidente de segurança em todos os anos de parceria.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">CR</div>
+            <div>
+              <div class="testi-name">Carlos R.</div>
+              <div class="testi-role">Diretor de Produção — Festival Regional</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up delay-1">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Contratamos para um evento municipal com mais de 8 mil pessoas. A equipe chegou no horário, montou tudo com perfeição e a prefeitura ficou muito satisfeita com o resultado.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AM</div>
+            <div>
+              <div class="testi-name">Ana M.</div>
+              <div class="testi-role">Secretaria de Cultura — Prefeitura Municipal</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up delay-2">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Profissionalismo do início ao fim. O toldo cristal que instalaram no nosso evento corporativo deixou o ambiente elegante e nossos clientes ficaram impressionados.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">FS</div>
+            <div>
+              <div class="testi-name">Felipe S.</div>
+              <div class="testi-role">Gestor de Eventos — Empresa Corporativa</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -1156,7 +1291,7 @@
         <h2 class="cta-title">Vamos Montar o<br/>Seu Próximo <span class="amber">Evento?</span></h2>
         <p class="cta-sub">Entre em contato agora e receba um orçamento personalizado em minutos.</p>
         <div class="cta-btns">
-          <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="btn btn-amber" style="font-size:16px;padding:20px 40px;">
+          <a href="https://wa.me/5500000000000" class="btn btn-amber" style="font-size:16px;padding:20px 40px;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar no WhatsApp Agora
           </a>
@@ -1180,7 +1315,7 @@
             <a href="#" class="social-btn" title="Instagram">📸</a>
             <a href="#" class="social-btn" title="Facebook">👤</a>
             <a href="#" class="social-btn" title="YouTube">▶️</a>
-            <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="social-btn" title="WhatsApp">💬</a>
+            <a href="https://wa.me/5500000000000" class="social-btn" title="WhatsApp">💬</a>
           </div>
         </div>
 
@@ -1188,6 +1323,7 @@
           <h4>Navegação</h4>
           <ul>
             <li><a href="#solutions">Soluções</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
             <li><a href="#portfolio">Portfólio</a></li>
             <li><a href="#regional">Cobertura</a></li>
             <li><a href="#cta-banner">Orçamento</a></li>
@@ -1210,8 +1346,8 @@
           <div class="contact-item">
             <span class="contact-icon">📞</span>
             <div>
-              <a href="tel:+558581488448">(85) 8148-8448</a><br/>
-              <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!">(85) 9135-0092 (WhatsApp)</a>
+              <a href="tel:+55000000000">(00) 00000-0000</a><br/>
+              <a href="https://wa.me/5500000000000">(00) 90000-0000 (WhatsApp)</a>
             </div>
           </div>
           <div class="contact-item">
@@ -1238,7 +1374,7 @@
   </footer>
 
   <!-- ══ WHATSAPP FLOAT ══════════════════════════════════════════ -->
-  <a href="https://wa.me/5585913500922?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site!%20%0AGostaria%20de%20fazer%20um%20or%C3%A7amento!" class="wha-float" title="Falar no WhatsApp">
+  <a href="https://wa.me/5500000000000" class="wha-float" title="Falar no WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
