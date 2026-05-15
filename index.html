@@ -28,7 +28,7 @@
       --radius:  6px;
       --transition: .35s cubic-bezier(.4,0,.2,1);
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       background: var(--black);
       color: var(--white);
@@ -202,8 +202,8 @@
       border: 1px dashed var(--steel);
       padding: 12px 24px;
       border-radius: var(--radius);
-      opacity: 0.1;
-      width: 100%;
+      opacity: 0.2;
+      width: 120%;
     }
     .hero-overlay {
       position: absolute;
@@ -573,18 +573,16 @@
       gap: 64px;
       align-items: center;
     }
-    @media (max-width: 700px) { .regional-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) {
+      .regional-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
     .regional-map-ph {
       aspect-ratio: 4/3;
+      width: 100%;
       background: var(--black);
       border-radius: var(--radius);
-      border: 1px dashed var(--steel);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-h);
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--ash);
+      border: 1px solid var(--steel);
+      display: block;
     }
     .regional-tags {
       display: flex;
@@ -983,7 +981,7 @@
   <!-- ══ HERO ════════════════════════════════════════════════ -->
   <section id="hero">
     <div class="hero-placeholder">
-      <img id="img111" class="img-label" src="arquibancadas.jpeg" alt="Descrição da arquibancada">
+      <img id="img111" class="img-label" src="img/fade.png" alt="Descrição da arquibancada">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-accent"></div>
@@ -1143,7 +1141,7 @@
           </div>
         </div>
         <div>
-          <iframe class="regional-map-ph" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1019103.9114002655!2d-39.49595435976986!3d-3.83707269528507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c74f1ae802e0ab%3A0x60f5c76f4e0806d5!2sRegi%C3%A3o%20Metropolitana%20de%20Fortaleza%2C%20CE!5e0!3m2!1spt-BR!2sbr!4v1778748192176!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe class="regional-map-ph" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1019103.9114002655!2d-39.49595435976986!3d-3.83707269528507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c74f1ae802e0ab%3A0x60f5c76f4e0806d5!2sRegi%C3%A3o%20Metropolitana%20de%20Fortaleza%2C%20CE!5e0!3m2!1spt-BR!2sbr!4v1778748192176!5m2!1spt-BR!2sbr" style="border:0;width:100%;height:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
