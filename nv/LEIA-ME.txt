@@ -1,0 +1,7 @@
+CIMAR EVENTOS — SITE ATUALIZADO V3
+
+Abra index.html no navegador.
+
+Mudanças: somente a primeira seção (hero): novo H1, carrossel automático com fotos locais de estruturas, setas e indicadores; e título NOSSAS SOLUÇÕES em linha única. Demais seções mantidas da versão V2.
+
+Mantenha as pastas assets, img e solucoes e as imagens junto do index.html.
